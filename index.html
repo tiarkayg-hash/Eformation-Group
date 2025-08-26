@@ -119,10 +119,38 @@
             height: 32px;
             fill: white;
         }
+        /* New dropdown menu styles */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 250px; /* Adjust as needed */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 500;
+            padding: 8px;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .dropdown-menu.open {
+            display: flex;
+        }
+        .dropdown-menu a {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: var(--blue-900);
+            transition: background-color 0.2s;
+        }
+        .dropdown-menu a:hover {
+            background-color: var(--blue-100);
+        }
     </style>
 </head>
 <body>
-    <header class="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between">
+    <header class="container mx-auto px-4 py-4 flex flex-row items-center justify-between relative">
         <div class="flex items-center gap-3">
             <div class="w-12 h-12 rounded-xl bg-[var(--blue-900)] text-white grid place-items-center font-extrabold text-2xl">R</div>
             <div>
@@ -130,7 +158,9 @@
                 <div class="text-xs text-gray-500">Courier • Logistics • Fulfilment</div>
             </div>
         </div>
-        <nav class="flex-wrap justify-center mt-4 sm:mt-0 sm:gap-4 lg:gap-6 flex">
+        
+        <!-- Desktop Navigation -->
+        <nav id="desktop-nav" class="hidden md:flex flex-wrap justify-center sm:gap-4 lg:gap-6">
             <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#schedule-pickup">Schedule Pickup</a>
             <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#services">Services</a>
             <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#industries">Industries</a>
@@ -138,6 +168,21 @@
             <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#why">Why Us</a>
             <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#contact">Contact</a>
         </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-200 transition duration-200 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="dropdown-menu">
+            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#schedule-pickup">Schedule Pickup</a>
+            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#services">Services</a>
+            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#industries">Industries</a>
+            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#reviews">Reviews</a>
+            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#why">Why Us</a>
+            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#contact">Contact</a>
+        </div>
     </header>
 
     <section class="moving-belt">
@@ -371,7 +416,6 @@
                         <div>📞 +27 65 921 3018</div>
                         <div>✉️ <a class="text-[var(--blue-700)] no-underline hover:underline transition duration-200" href="mailto:nkanyezzi@gmail.com">nkanyezzi@gmail.com</a></div>
                     </div>
-                    <img src="https://placehold.co/420x160/E5E7EB/4B5563?text=Contact+Visual" alt="Contact us" class="w-full rounded-xl mt-3 object-cover h-40"/>
                 </aside>
             </div>
         </section>
@@ -624,6 +668,22 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#schedule-pickup [data-type="one-off"]').click();
         });
+
+        // --- NEW DROPDOWN MENU JAVASCRIPT ---
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close the menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        // --- END OF NEW DROPDOWN MENU JAVASCRIPT ---
     </script>
 </body>
 </html>
