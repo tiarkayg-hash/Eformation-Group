@@ -201,55 +201,6 @@
             </div>
         </section>
 
-        <section id="services" class="py-9">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end">
-                <h2 class="text-3xl font-bold text-[var(--blue-900)]">Services</h2>
-                <a class="text-[var(--blue-700)] no-underline font-semibold mt-2 sm:mt-0 hover:text-[var(--blue-900)] transition duration-200" href="#">View all services →</a>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Same‑Day & Next‑Day</h3>
-                    <p class="text-gray-500 text-sm">Time‑definite delivery for documents, parcels, and pallets across major metros.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">International Express</h3>
-                    <p class="text-gray-500 text-sm">Door‑to‑door cross‑border shipping with customs clearance and real‑time tracking.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">E‑commerce Fulfilment</h3>
-                    <p class="text-gray-500 text-sm">Warehousing, pick‑pack‑ship, and returns management integrated with your store.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Contract Logistics</h3>
-                    <p class="text-gray-500 text-sm">Inventory optimization, bonded storage, and distribution to your network.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Freight (Air / Sea / Road)</h3>
-                    <p class="text-gray-500 text-sm">Multimodal freight forwarding with end‑to‑end visibility and insurance options.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Last‑Mile & PUDO</h3>
-                    <p class="text-gray-500 text-sm">Doorbell to doorstep, or pickup‑dropoff points across urban and rural networks.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-9">
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <div class="font-bold text-[var(--blue-900)] mb-2">Quick Quote</div>
-                <form id="quote-form" onsubmit="handleQuote(event)" class="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="From (City/Country)" id="qFrom" required />
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="To (City/Country)" id="qTo" required />
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="Weight (kg)" id="qWeight" required />
-                    <div class="flex gap-2">
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" placeholder="Email" id="qEmail" required />
-                        <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-4 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Get Rate</button>
-                    </div>
-                </form>
-                <div class="text-xs text-gray-500 mt-2">Need advanced pricing? <a href="#contact" class="text-[var(--blue-700)] no-underline hover:underline transition duration-200">Contact sales</a>.</div>
-            </div>
-        </section>
-        
         <section id="schedule-pickup" class="py-9">
             <h2 class="text-3xl font-bold text-[var(--blue-900)]">Schedule a Pickup</h2>
             <p class="text-gray-500">Book a one-off pickup or schedule a recurring weekly or monthly pickup at a time that works for you.</p>
@@ -318,6 +269,55 @@
             </div>
         </section>
 
+        <section class="py-9">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="font-bold text-[var(--blue-900)] mb-2">Quick Quote</div>
+                <form id="quote-form" onsubmit="handleQuote(event)" class="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="From (City/Country)" id="qFrom" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="To (City/Country)" id="qTo" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="Weight (kg)" id="qWeight" required />
+                    <div class="flex gap-2">
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" placeholder="Email" id="qEmail" required />
+                        <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-4 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Get Rate</button>
+                    </div>
+                </form>
+                <div class="text-xs text-gray-500 mt-2">Need advanced pricing? <a href="#contact" class="text-[var(--blue-700)] no-underline hover:underline transition duration-200">Contact sales</a>.</div>
+            </div>
+        </section>
+
+        <section id="services" class="py-9">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end">
+                <h2 class="text-3xl font-bold text-[var(--blue-900)]">Services</h2>
+                <a class="text-[var(--blue-700)] no-underline font-semibold mt-2 sm:mt-0 hover:text-[var(--blue-900)] transition duration-200" href="#">View all services →</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Same‑Day & Next‑Day</h3>
+                    <p class="text-gray-500 text-sm">Time‑definite delivery for documents, parcels, and pallets across major metros.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">International Express</h3>
+                    <p class="text-gray-500 text-sm">Door‑to‑door cross‑border shipping with customs clearance and real‑time tracking.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">E‑commerce Fulfilment</h3>
+                    <p class="text-gray-500 text-sm">Warehousing, pick‑pack‑ship, and returns management integrated with your store.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Contract Logistics</h3>
+                    <p class="text-gray-500 text-sm">Inventory optimization, bonded storage, and distribution to your network.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Freight (Air / Sea / Road)</h3>
+                    <p class="text-gray-500 text-sm">Multimodal freight forwarding with end‑to‑end visibility and insurance options.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                    <h3 class="font-semibold text-[var(--blue-900)] mb-1">Last‑Mile & PUDO</h3>
+                    <p class="text-gray-500 text-sm">Doorbell to doorstep, or pickup‑dropoff points across urban and rural networks.</p>
+                </div>
+            </div>
+        </section>
+        
         <section id="industries" class="py-9">
             <h2 class="text-3xl font-bold text-[var(--blue-900)]">Industry Expertise</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
