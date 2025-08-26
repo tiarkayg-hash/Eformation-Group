@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eformation Group — Courier & Logistics</title>
-  <meta name="description" content="Eformation Group — Seamless, secure, on-time delivery solutions for businesses and individuals." />
+  <title>Reformation Group — Courier & Logistics</title>
+  <meta name="description" content="Reformation Group — Seamless, secure, on-time delivery solutions for businesses and individuals." />
   <style>
     :root{
       --blue-900:#0a4b7a;
@@ -221,7 +221,7 @@
       <div class="row">
         <div style="display:flex;gap:12px;align-items:center">
           <div>📞 <a href="tel:+27659213018">+27 65 921 3018</a></div>
-          <div>✉️ <a href="mailto:info@eformationgroup.co.za">info@eformationgroup.co.za</a></div>
+          <div>✉️ <a href="mailto:nkanyezzi@gmail.com">nkanyezzi@gmail.com</a></div>
         </div>
         <div class="muted">Global Coverage • HQ: Johannesburg</div>
       </div>
@@ -230,9 +230,9 @@
 
   <header class="container">
     <div class="brand">
-      <div class="logo">E</div>
+      <div class="logo">R</div>
       <div>
-        <div style="font-weight:800;color:var(--blue-900)">Eformation Group</div>
+        <div style="font-weight:800;color:var(--blue-900)">Reformation Group</div>
         <div style="font-size:12px;color:var(--muted)">Courier • Logistics • Fulfilment</div>
       </div>
     </div>
@@ -257,8 +257,8 @@
   <main class="container">
     <!-- HERO -->
     <section class="hero container">
-      <h1>Courier & Logistics built for speed, scale, and reliability</h1>
-      <p>Eformation Group is a premier courier and logistics company. We provide seamless, secure delivery solutions for businesses and individuals—ensuring your parcels arrive on time, every time.</p>
+      <h1>Reformation Group: Courier & Logistics built for speed, scale, and reliability</h1>
+      <p>Reformation Group is a premier courier and logistics company. We provide seamless, secure delivery solutions for businesses and individuals—ensuring your parcels arrive on time, every time.</p>
       <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
         <a class="btn btn-primary" href="#schedule-pickup">Schedule a Pickup</a>
         <a class="btn btn-outline" href="#contact">Talk to Sales</a>
@@ -304,7 +304,7 @@
     <section class="section">
       <div class="card">
         <div style="font-weight:700;color:var(--blue-900);margin-bottom:8px">Quick Quote</div>
-        <form onsubmit="return handleQuote(event)" class="quote-grid">
+        <form id="quote-form" onsubmit="handleQuote(event)" class="quote-grid">
           <input placeholder="From (City/Country)" id="qFrom" required />
           <input placeholder="To (City/Country)" id="qTo" required />
           <input placeholder="Weight (kg)" id="qWeight" required />
@@ -322,11 +322,12 @@
       <h2 style="color:var(--blue-900)">Schedule a Pickup</h2>
       <p class="muted">Book a one-off pickup or schedule a recurring weekly or monthly pickup at a time that works for you.</p>
       <div class="card" style="margin-top:16px">
-        <form onsubmit="return handleSchedulePickup(event)">
+        <form id="pickup-form" onsubmit="handleSchedulePickup(event)">
           <div class="form-group">
             <label>Pickup Type</label>
             <div class="radio-group">
               <div class="radio-option selected" data-type="one-off">One-Off</div>
+              <div class="radio-option" data-type="daily">Daily</div>
               <div class="radio-option" data-type="weekly">Weekly</div>
               <div class="radio-option" data-type="monthly">Monthly</div>
             </div>
@@ -348,11 +349,26 @@
             <input type="text" id="pickupAddress" name="pickupAddress" placeholder="Street, City, Postal Code" required />
           </div>
 
+          <div class="form-group">
+            <label for="pickupEmail">Contact Email</label>
+            <input type="email" id="pickupEmail" name="pickupEmail" placeholder="e.g. yourname@example.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="packageWeight">Package Weight (kg)</label>
+            <input type="number" id="packageWeight" name="packageWeight" placeholder="Approximate weight in kg" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="tel" id="contactNumber" name="contactNumber" placeholder="e.g. +27 12 345 6789" required />
+          </div>
+
           <button class="btn btn-primary" type="submit" style="width:100%">Schedule Pickup</button>
         </form>
         
         <div class="link-buttons">
-          <a class="btn btn-outline" href="mailto:info@eformationgroup.co.za">Email us directly</a>
+          <a class="btn btn-outline" href="mailto:nkanyezzi@gmail.com">Email us directly</a>
           <a class="btn btn-outline" href="https://wa.me/27659213018">Chat on WhatsApp</a>
         </div>
       </div>
@@ -391,7 +407,7 @@
               <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                   <div class="stars">★★★★★</div>
               </div>
-              <p class="small muted" style="margin-top:8px">"Eformation has the best tracking and communication we've ever experienced from a courier company. We always know where our shipments are."</p>
+              <p class="small muted" style="margin-top:8px">"Reformation Group had the best tracking and communication we've ever experienced from a courier company. We always knew where our shipments were."</p>
               <div style="font-size:14px; font-weight:600">- R. Adams</div>
           </div>
       </div>
@@ -401,7 +417,7 @@
     <section id="why" class="section">
       <div class="why-grid">
         <div>
-          <h2 style="color:var(--blue-900)">Why Eformation Group?</h2>
+          <h2 style="color:var(--blue-900)">Why Reformation Group?</h2>
           <ul style="margin-top:12px;color:var(--muted);padding-left:18px">
             <li>On‑time delivery backed by data‑driven routing and live ETAs.</li>
             <li>Proactive notifications: SMS, email, and webhook events.</li>
@@ -428,7 +444,7 @@
         <div>
           <h2 style="color:var(--blue-900)">Contact us</h2>
           <p class="muted">Tell us about your shipping needs and we'll reach out.</p>
-          <form style="margin-top:12px" onsubmit="return handleContact(event)">
+          <form id="contact-form" style="margin-top:12px" onsubmit="handleContact(event)">
             <input placeholder="Full Name" id="cName" required />
             <input type="email" placeholder="Email" id="cEmail" required style="margin-top:8px" />
             <input placeholder="Company (optional)" id="cCompany" style="margin-top:8px" />
@@ -441,11 +457,14 @@
         </div>
         <aside class="card">
           <h3 style="margin:0;color:var(--blue-900)">Head Office</h3>
-          <div class="small muted" style="margin-top:6px">Johannesburg, South Africa</div>
+          <div class="small muted" style="margin-top:6px">
+            JOHANNESBURG<br/>
+            GAUTENG<br/>
+            2190
+          </div>
           <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:14px">
             <div>📞 +27 65 921 3018</div>
-            <div>✉️ info@eformationgroup.co.za</div>
-            <div>📍 Global Operations</div>
+            <div>✉️ <a href="mailto:nkanyezzi@gmail.com">nkanyezzi@gmail.com</a></div>
           </div>
           <img src="https://placehold.co/420x160/E5E7EB/4B5563?text=Contact+Visual" alt="Contact us" style="width:100%;border-radius:10px;margin-top:12px;object-fit:cover;height:160px"/>
         </aside>
@@ -472,8 +491,8 @@
     <div class="footer-grid">
       <div>
         <div style="display:flex;gap:8px;align-items:center">
-          <div class="logo" style="width:36px;height:36px">E</div>
-          <div style="font-weight:700">Eformation Group</div>
+          <div class="logo" style="width:36px;height:36px">R</div>
+          <div style="font-weight:700">Reformation Group</div>
         </div>
         <div class="small muted" style="margin-top:8px">Seamless, secure, on‑time delivery solutions for businesses and individuals.</div>
       </div>
@@ -492,8 +511,8 @@
     </div>
 
     <div style="margin-top:18px;border-top:1px solid #eef6ff;padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)">
-      <div>© <span id="year"></span> Eformation Group. All rights reserved.</div>
-      <div>Made with ❤️ for speed, reliability, and great customer care.</div>
+      <div>© <span id="year"></span> Reformation Group. All rights reserved.</div>
+      <div>Made with for speed, reliability, and great customer care.</div>
     </div>
   </footer>
 
@@ -528,19 +547,6 @@
       document.getElementById('modal-overlay').style.display = 'none';
     }
 
-    function handleQuote(e){
-      e.preventDefault();
-      var from = document.getElementById('qFrom').value;
-      var to = document.getElementById('qTo').value;
-      var weight = document.getElementById('qWeight').value;
-      var email = document.getElementById('qEmail').value;
-      showModal(
-        'Quote Requested',
-        'Thank you! We have received your quote request for a shipment from ' + from + ' to ' + to + ' with a weight of ' + weight + ' kg. We will contact you at ' + email + ' shortly.'
-      );
-      return false;
-    }
-    
     // Add event listeners for the new radio buttons
     document.querySelectorAll('.radio-option').forEach(option => {
       option.addEventListener('click', (e) => {
@@ -550,22 +556,62 @@
       });
     });
 
+    function handleQuote(e){
+      e.preventDefault();
+      var from = document.getElementById('qFrom').value;
+      var to = document.getElementById('qTo').value;
+      var weight = document.getElementById('qWeight').value;
+      var email = document.getElementById('qEmail').value;
+
+      var subject = 'Quote Request from Reformation Group Website';
+      var body = 'Hello,\n\nI would like to request a quote based on the following details:\n\n' +
+                 'From: ' + from + '\n' +
+                 'To: ' + to + '\n' +
+                 'Weight: ' + weight + ' kg\n' +
+                 'Contact Email: ' + email + '\n\n' +
+                 'Please provide a quote at your earliest convenience. Thank you.';
+      
+      var mailtoLink = 'mailto:nkanyezzi@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      
+      window.location.href = mailtoLink;
+
+      showModal(
+        'Quote Request Sent',
+        'Your email client will open with the details you entered. Please click "Send" to complete the request.'
+      );
+      
+      return false;
+    }
+    
     function handleSchedulePickup(e){
       e.preventDefault();
       const pickupType = document.getElementById('pickupType').value;
       const pickupDate = document.getElementById('pickupDate').value;
       const pickupTime = document.getElementById('pickupTime').value;
       const pickupAddress = document.getElementById('pickupAddress').value;
+      const pickupEmail = document.getElementById('pickupEmail').value;
+      const packageWeight = document.getElementById('packageWeight').value;
+      const contactNumber = document.getElementById('contactNumber').value;
 
-      let message = 'Thank you! We have received your request for a ';
+      var subject = 'Pickup Schedule Request from Reformation Group Website';
+      var body = 'Hello,\n\nI would like to schedule a pickup based on the following details:\n\n' +
+                 'Pickup Type: ' + pickupType + '\n' +
+                 'Preferred Date: ' + pickupDate + '\n' +
+                 'Preferred Time: ' + pickupTime + '\n' +
+                 'Pickup Address: ' + pickupAddress + '\n' +
+                 'Contact Email: ' + pickupEmail + '\n' +
+                 'Package Weight: ' + packageWeight + ' kg\n' +
+                 'Contact Number: ' + contactNumber + '\n\n' +
+                 'Please confirm the schedule and provide further instructions. Thank you.';
+
+      var mailtoLink = 'mailto:nkanyezzi@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       
-      if (pickupType === 'one-off') {
-        message += 'one-off pickup scheduled for ' + pickupDate + ' at ' + pickupTime + '.';
-      } else {
-        message += pickupType + ' recurring pickup. We will contact you at your provided email to finalize the details and confirm the schedule.';
-      }
+      window.location.href = mailtoLink;
 
-      showModal('Pickup Scheduled', message + '\n\nWe will be in touch soon to confirm the details and provide a tracking number for your shipment from ' + pickupAddress + '.');
+      showModal(
+        'Pickup Request Sent',
+        'Your email client will open with the details you entered. Please click "Send" to complete the request.'
+      );
       return false;
     }
 
@@ -573,10 +619,24 @@
       e.preventDefault();
       var name = document.getElementById('cName').value;
       var email = document.getElementById('cEmail').value;
-      var msg = document.getElementById('cMessage').value;
+      var company = document.getElementById('cCompany').value;
+      var message = document.getElementById('cMessage').value;
+
+      var subject = 'Contact Form Submission from Reformation Group Website';
+      var body = 'Hello,\n\nI would like to get in touch with you. Here are my details and message:\n\n' +
+                 'Name: ' + name + '\n' +
+                 'Email: ' + email + '\n' +
+                 'Company: ' + company + '\n' +
+                 'Message: ' + message + '\n\n' +
+                 'Thank you.';
+      
+      var mailtoLink = 'mailto:nkanyezzi@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      
+      window.location.href = mailtoLink;
+
       showModal(
-        'Contact Form Submitted',
-        'Thank you, ' + name + '! We will respond to ' + email + ' shortly.'
+        'Contact Form Sent',
+        'Your email client will open with the details you entered. Please click "Send" to complete the request.'
       );
       return false;
     }
@@ -584,7 +644,7 @@
     function handleBookCall() {
       showModal(
         'Book a Call',
-        'To book a call with our sales team, please email us at info@eformationgroup.co.za.'
+        'To book a call with our sales team, please email us at nkanyezzi@gmail.com.'
       );
     }
   </script>
