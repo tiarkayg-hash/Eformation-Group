@@ -263,7 +263,7 @@
                 </form>
                 
                 <div class="flex flex-wrap gap-2 mt-3">
-                    <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="mailto:nkanyezzi@gmail.com">Email us directly</a>
+                    <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="mailto:reformationgrp@outlook.com">Email us directly</a>
                     <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="https://wa.me/27659213018" target="_blank">Chat on WhatsApp</a>
                 </div>
             </div>
@@ -538,13 +538,35 @@
             modal.classList.add('hidden');
         }
 
-        // Handle form submissions
+        // --- UPDATED FUNCTIONS FOR FORM SUBMISSION ---
         function handleSchedulePickup(e) {
             e.preventDefault();
             const pickupType = document.getElementById('pickupType').value;
             const pickupDate = document.getElementById('pickupDate').value;
             const pickupTime = document.getElementById('pickupTime').value;
-            showModal('Pickup Scheduled!', `Your ${pickupType} pickup has been scheduled for ${pickupDate} at ${pickupTime}. We will contact you soon!`);
+            const pickupAddress = document.getElementById('pickupAddress').value;
+            const dropoffAddress = document.getElementById('dropoffAddress').value;
+            const pickupEmail = document.getElementById('pickupEmail').value;
+            const contactNumber = document.getElementById('contactNumber').value;
+            const packageWeight = document.getElementById('packageWeight').value;
+
+            const subject = "New Pickup Request from Reformation Group Website";
+            const body = `
+Pickup Details:
+Type: ${pickupType}
+Date: ${pickupDate}
+Time: ${pickupTime}
+Pickup Address: ${pickupAddress}
+Drop-off Address: ${dropoffAddress}
+Package Weight: ${packageWeight} kg
+
+Contact Details:
+Email: ${pickupEmail}
+Phone: ${contactNumber}
+`;
+
+            const mailtoLink = `mailto:reformationgrp@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
         }
 
         function handleQuote(e) {
@@ -552,18 +574,49 @@
             const from = document.getElementById('qFrom').value;
             const to = document.getElementById('qTo').value;
             const weight = document.getElementById('qWeight').value;
-            showModal('Quote Request Sent!', `Your quote request for a ${weight}kg parcel from ${from} to ${to} has been submitted. We'll get back to you with a rate.`);
+            const email = document.getElementById('qEmail').value;
+
+            const subject = "New Quick Quote Request";
+            const body = `
+Quick Quote Request Details:
+From: ${from}
+To: ${to}
+Weight: ${weight} kg
+
+Contact Details:
+Email: ${email}
+`;
+
+            const mailtoLink = `mailto:reformationgrp@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
         }
 
         function handleContact(e) {
             e.preventDefault();
             const name = document.getElementById('cName').value;
-            showModal('Message Sent!', `Thank you for your message, ${name}. We have received your inquiry and will be in touch shortly!`);
+            const email = document.getElementById('cEmail').value;
+            const company = document.getElementById('cCompany').value;
+            const message = document.getElementById('cMessage').value;
+
+            const subject = "New Contact Inquiry from Reformation Group Website";
+            const body = `
+Contact Details:
+Full Name: ${name}
+Email: ${email}
+Company: ${company}
+
+Message:
+${message}
+`;
+            
+            const mailtoLink = `mailto:reformationgrp@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
         }
 
         function handleBookCall() {
-            showModal('Book a Call', 'To book a call, please contact our sales team at +27 65 921 3018 or via email at nkanyezzi@gmail.com.');
+            showModal('Book a Call', 'To book a call, please contact our sales team directly at +27 65 921 3018 or via email at reformationgrp@outlook.com.');
         }
+        // --- END OF UPDATED FUNCTIONS ---
 
         // Handle pickup type selection
         const pickupTypeButtons = document.querySelectorAll('#schedule-pickup [data-type]');
@@ -608,4 +661,5 @@
     </script>
 </body>
 </html>
+
 
