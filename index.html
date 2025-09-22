@@ -44,7 +44,7 @@
             padding-left: 100%; /* Start off-screen */
         }
         @keyframes marquee {
-            0%  { transform: translate(0, 0); }
+            0%  { transform: translate(0, 0); }
             100% { transform: translate(-100%, 0); }
         }
         /* Modal styles */
@@ -205,53 +205,85 @@
             <h2 class="text-3xl font-bold text-[var(--blue-900)]">Schedule a Pickup</h2>
             <p class="text-gray-500">Book a one-off pickup or schedule a recurring weekly or monthly pickup at a time that works for you.</p>
             <div class="bg-white rounded-xl shadow-md p-6 mt-4">
-                <form id="pickup-form" onsubmit="handleSchedulePickup(event)">
+                <!-- Formspree will handle the form submission and email the results. -->
+                <form id="pickup-form" action="https://formspree.io/f/mlekrrbp" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Pickup Type</label>
                         <div class="flex flex-wrap gap-2">
-                            <div class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200" data-type="one-off">One-Off</div>
-                            <div class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200" data-type="daily">Daily</div>
-                            <div class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200" data-type="weekly">Weekly</div>
-                            <div class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200" data-type="monthly">Monthly</div>
+                            <label class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200">
+                                <input type="radio" name="pickupType" value="One-Off" class="hidden" checked />
+                                One-Off
+                            </label>
+                            <label class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200">
+                                <input type="radio" name="pickupType" value="Daily" class="hidden" />
+                                Daily
+                            </label>
+                            <label class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200">
+                                <input type="radio" name="pickupType" value="Weekly" class="hidden" />
+                                Weekly
+                            </label>
+                            <label class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200">
+                                <input type="radio" name="pickupType" value="Monthly" class="hidden" />
+                                Monthly
+                            </label>
                         </div>
                     </div>
-                    <input type="hidden" id="pickupType" name="pickupType" value="one-off" />
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                         <div class="form-group">
-                            <label for="pickupDate" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Preferred Date</label>
+                            <label for="pickupDate" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Date</label>
                             <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="date" id="pickupDate" name="pickupDate" required />
                         </div>
                         <div class="form-group">
-                            <label for="pickupTime" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Preferred Time</label>
+                            <label for="pickupTime" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Time</label>
                             <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="time" id="pickupTime" name="pickupTime" required />
                         </div>
                     </div>
                     
                     <div class="mb-3">
                         <label for="pickupAddress" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Pickup Address</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="text" id="pickupAddress" name="pickupAddress" placeholder="Street, City, Postal Code" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="text" id="pickupAddress" name="pickupAddress" placeholder="Province, Suburb, Town, Code, Unit Number" required />
                     </div>
 
                     <div class="mb-3">
-                        <label for="dropoffAddress" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Drop-off Address</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="text" id="dropoffAddress" name="dropoffAddress" placeholder="Street, City, Postal Code" required />
+                        <label for="deliveryCompany" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Deliver to (Company Name)</label>
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="text" id="deliveryCompany" name="deliveryCompany" placeholder="e.g. Ingredion" required />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                         <div class="form-group">
-                            <label for="pickupEmail" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Contact Email</label>
-                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" id="pickupEmail" name="pickupEmail" placeholder="e.g. yourname@example.com" required />
+                            <label for="contactPerson" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Contact Person</label>
+                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="text" id="contactPerson" name="contactPerson" placeholder="e.g. John Doe" required />
                         </div>
                         <div class="form-group">
-                            <label for="contactNumber" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Contact Number</label>
-                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="tel" id="contactNumber" name="contactNumber" placeholder="e.g. +27 12 345 6789" required />
+                            <label for="deliveryContactNumber" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Contact Number</label>
+                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="tel" id="deliveryContactNumber" name="deliveryContactNumber" placeholder="e.g. 011 867 9260" required />
                         </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="altContactNumber" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Alternative Number (Optional)</label>
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="tel" id="altContactNumber" name="altContactNumber" placeholder="e.g. 011 867 9261" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="altContactEmail" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Alternative Email (Optional)</label>
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" id="altContactEmail" name="altContactEmail" placeholder="e.g. alternate@example.com" />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="packageQuantity" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Quantity of Packages</label>
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="number" id="packageQuantity" name="packageQuantity" placeholder="e.g. 1" min="1" required />
                     </div>
 
                     <div class="mb-4">
                         <label for="packageWeight" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Package Weight (kg)</label>
                         <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="number" id="packageWeight" name="packageWeight" placeholder="Approximate weight in kg" required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="specialInstructions" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Special Instructions / Note</label>
+                        <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 min-h-[80px]" id="specialInstructions" name="specialInstructions" placeholder="Any special delivery instructions or notes..."></textarea>
                     </div>
 
                     <div class="mb-4">
@@ -263,7 +295,7 @@
                 </form>
                 
                 <div class="flex flex-wrap gap-2 mt-3">
-                    <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="mailto:reformationgrp@outlook.com">Email us directly</a>
+                    <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="mailto:tanya.monyai1@ingredion.com">Email us directly</a>
                     <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="https://wa.me/27659213018" target="_blank">Chat on WhatsApp</a>
                 </div>
             </div>
@@ -272,12 +304,12 @@
         <section class="py-9">
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="font-bold text-[var(--blue-900)] mb-2">Quick Quote</div>
-                <form id="quote-form" onsubmit="handleQuote(event)" class="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="From (City/Country)" id="qFrom" required />
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="To (City/Country)" id="qTo" required />
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="Weight (kg)" id="qWeight" required />
+                <form id="quote-form" action="https://formspree.io/f/mlekrrbp" method="POST" class="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="From (City/Country)" id="qFrom" name="from" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="To (City/Country)" id="qTo" name="to" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="Weight (kg)" id="qWeight" name="weight" required />
                     <div class="flex gap-2">
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" placeholder="Email" id="qEmail" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" placeholder="Email" id="qEmail" name="_replyto" required />
                         <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-4 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Get Rate</button>
                     </div>
                 </form>
@@ -394,14 +426,15 @@
                 <div>
                     <h2 class="text-3xl font-bold text-[var(--blue-900)]">Contact us</h2>
                     <p class="text-gray-500">Tell us about your shipping needs and we'll reach out.</p>
-                    <form id="contact-form" class="mt-3" onsubmit="handleContact(event)">
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Full Name" id="cName" required />
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" type="email" placeholder="Email" id="cEmail" required />
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Company (optional)" id="cCompany" />
-                        <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 min-h-[120px]" placeholder="How can we help?" id="cMessage"></textarea>
+                    <form id="contact-form" action="https://formspree.io/f/mlekrrbp" method="POST" class="mt-3">
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Full Name" id="cName" name="fullName" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" type="email" placeholder="Email" id="cEmail" name="_replyto" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Company (optional)" id="cCompany" name="company" />
+                        <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 min-h-[120px]" placeholder="How can we help?" id="cMessage" name="message"></textarea>
                         <div class="mt-3 flex gap-2">
                             <button class="bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Submit</button>
-                            <button class="bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-600)] hover:text-white transition duration-200" type="button" onclick="handleBookCall()">Book a Call</button>
+                            <!-- Note: The "Book a Call" button's functionality is handled separately. -->
+                            <button class="bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-600)] hover:text-white transition duration-200" type="button" onclick="window.location.href='https://calendly.com/your-company/booking-call'">Book a Call</button>
                         </div>
                     </form>
                 </div>
@@ -413,8 +446,8 @@
                         2190
                     </div>
                     <div class="mt-3 flex flex-col gap-2 text-sm">
-                        <div>📞 +27 65 921 3018</div>
-                        <div>✉️ <a class="text-[var(--blue-700)] no-underline hover:underline transition duration-200" href="mailto:reformationgrp@outlook.com">reformationgrp@outlook.com</a></div>
+                        <div>📞 <a href="tel:+27118679260" class="text-gray-500 no-underline hover:underline">011 867 9260</a></div>
+                        <div>✉️ <a class="text-[var(--blue-700)] no-underline hover:underline transition duration-200" href="mailto:tanya.monyai1@ingredion.com">tanya.monyai1@ingredion.com</a></div>
                     </div>
                 </aside>
             </div>
@@ -491,173 +524,44 @@
                     <p>Payment must be made in full. Recovery costs for unpaid amounts are payable by the client.</p>
                 </div>
                 <div class="p-6 bg-white rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Claims</h3>
-                    <p class="mb-2">Claims must be submitted in writing within 30 days of shipment.</p>
-                    <p>Late claims will not be accepted.</p>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Force Majeure</h3>
+                    <p>Reformation Group is not liable for any failure or delay in performance due to circumstances beyond its reasonable control, including but not limited to acts of God, war, riots, embargoes, fire, flood, or other natural disasters.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/27659213018" 
-       class="whatsapp-float" 
-       target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-             alt="WhatsApp" />
-    </a>
-
-
-    <!-- The Modal HTML -->
-    <div id="message-modal" class="modal-overlay hidden">
-        <div class="modal-container">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-content">
-                <div class="modal-title" id="modal-title"></div>
-                <div class="modal-body" id="modal-body"></div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Set the current year in the footer
+        // Set the current year for the footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Modal functions
-        const modal = document.getElementById('message-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-
-        function showModal(title, message) {
-            modalTitle.textContent = title;
-            modalBody.textContent = message;
-            modal.classList.remove('hidden');
-        }
-
-        function closeModal() {
-            modal.classList.add('hidden');
-        }
-
-        // --- UPDATED FUNCTIONS FOR FORM SUBMISSION ---
-        function handleSchedulePickup(e) {
-            e.preventDefault();
-            const pickupType = document.getElementById('pickupType').value;
-            const pickupDate = document.getElementById('pickupDate').value;
-            const pickupTime = document.getElementById('pickupTime').value;
-            const pickupAddress = document.getElementById('pickupAddress').value;
-            const dropoffAddress = document.getElementById('dropoffAddress').value;
-            const pickupEmail = document.getElementById('pickupEmail').value;
-            const contactNumber = document.getElementById('contactNumber').value;
-            const packageWeight = document.getElementById('packageWeight').value;
-
-            const subject = "New Pickup Request from Reformation Group Website";
-            const body = `
-Pickup Details:
-Type: ${pickupType}
-Date: ${pickupDate}
-Time: ${pickupTime}
-Pickup Address: ${pickupAddress}
-Drop-off Address: ${dropoffAddress}
-Package Weight: ${packageWeight} kg
-
-Contact Details:
-Email: ${pickupEmail}
-Phone: ${contactNumber}
-`;
-
-            const mailtoLink = `mailto:reformationgrp@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-        }
-
-        function handleQuote(e) {
-            e.preventDefault();
-            const from = document.getElementById('qFrom').value;
-            const to = document.getElementById('qTo').value;
-            const weight = document.getElementById('qWeight').value;
-            const email = document.getElementById('qEmail').value;
-
-            const subject = "New Quick Quote Request";
-            const body = `
-Quick Quote Request Details:
-From: ${from}
-To: ${to}
-Weight: ${weight} kg
-
-Contact Details:
-Email: ${email}
-`;
-
-            const mailtoLink = `mailto:reformationgrp@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-        }
-
-        function handleContact(e) {
-            e.preventDefault();
-            const name = document.getElementById('cName').value;
-            const email = document.getElementById('cEmail').value;
-            const company = document.getElementById('cCompany').value;
-            const message = document.getElementById('cMessage').value;
-
-            const subject = "New Contact Inquiry from Reformation Group Website";
-            const body = `
-Contact Details:
-Full Name: ${name}
-Email: ${email}
-Company: ${company}
-
-Message:
-${message}
-`;
-            
-            const mailtoLink = `mailto:reformationgrp@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-        }
-
-        function handleBookCall() {
-            showModal('Book a Call', 'To book a call, please contact our sales team directly at +27 65 921 3018 or via email at reformationgrp@outlook.com.');
-        }
-        // --- END OF UPDATED FUNCTIONS ---
-
-        // Handle pickup type selection
-        const pickupTypeButtons = document.querySelectorAll('#schedule-pickup [data-type]');
-        pickupTypeButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                // Remove selected class from all buttons
-                pickupTypeButtons.forEach(btn => {
-                    btn.classList.remove('bg-[var(--blue-600)]', 'text-white');
-                    btn.classList.add('bg-[var(--blue-100)]');
-                });
-                
-                // Add selected class to the clicked button
-                const clickedButton = e.currentTarget;
-                clickedButton.classList.add('bg-[var(--blue-600)]', 'text-white');
-                clickedButton.classList.remove('bg-[var(--blue-100)]');
-
-                // Update the hidden input field with the selected pickup type
-                document.getElementById('pickupType').value = clickedButton.getAttribute('data-type');
-            });
-        });
-
-        // Set the initial state of the pickup type buttons.
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('#schedule-pickup [data-type="one-off"]').click();
-        });
-
-        // --- NEW DROPDOWN MENU JAVASCRIPT ---
+        // Handle mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-
+        
         mobileMenuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
         });
 
-        // Close the menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        // Hide mobile menu when a link is clicked
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
                 mobileMenu.classList.remove('open');
+            }
+        });
+
+        // Handle active state for pickup type radio buttons
+        const pickupTypeLabels = document.querySelectorAll('.flex-wrap > label');
+        pickupTypeLabels.forEach(label => {
+            label.addEventListener('click', () => {
+                pickupTypeLabels.forEach(l => {
+                    l.classList.remove('border-[var(--blue-900)]');
+                    l.classList.add('border-[var(--blue-100)]');
+                });
+                label.classList.add('border-[var(--blue-900)]');
+                label.classList.remove('border-[var(--blue-100)]');
             });
         });
-        // --- END OF NEW DROPDOWN MENU JAVASCRIPT ---
     </script>
 </body>
 </html>
