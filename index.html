@@ -205,12 +205,11 @@
             <h2 class="text-3xl font-bold text-[var(--blue-900)]">Schedule a Pickup</h2>
             <p class="text-gray-500">Book a one-off pickup or schedule a recurring weekly or monthly pickup at a time that works for you.</p>
             <div class="bg-white rounded-xl shadow-md p-6 mt-4">
-                <!-- Formspree will handle the form submission and email the results. -->
-                <form id="pickup-form" action="https://formspree.io/f/mlekrrbp" method="POST" enctype="multipart/form-data">
+                <form id="pickup-form" action="https://formspree.io/f/xyzngobk" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Pickup Type</label>
                         <div class="flex flex-wrap gap-2">
-                            <label class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-100)] cursor-pointer text-center font-medium transition-all duration-200">
+                            <label class="flex-1 bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 border-[var(--blue-900)] cursor-pointer text-center font-medium transition-all duration-200">
                                 <input type="radio" name="pickupType" value="One-Off" class="hidden" checked />
                                 One-Off
                             </label>
@@ -310,24 +309,19 @@
                         <label for="packageWeight" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Package Weight (kg)</label>
                         <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="number" id="packageWeight" name="packageWeight" placeholder="Approximate weight in kg" required />
                     </div>
+                    
+                    <div class="mb-4">
+                        <label for="parcelPicture" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Picture of Your Parcel</label>
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="file" id="parcelPicture" name="parcelPicture" />
+                    </div>
 
                     <div class="mb-4">
                         <label for="specialInstructions" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Special Instructions / Note</label>
                         <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 min-h-[80px]" id="specialInstructions" name="specialInstructions" placeholder="Any special delivery instructions or notes..."></textarea>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="parcelPicture" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Picture of Your Parcel to be Delivered</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="file" id="parcelPicture" name="parcelPicture" accept="image/*" />
-                    </div>
-
                     <button class="w-full bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Schedule Pickup</button>
                 </form>
-                
-                <div class="flex flex-wrap gap-2 mt-3">
-                    <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="mailto:tanya.monyai1@ingredion.com">Email us directly</a>
-                    <a class="flex-1 text-center bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="https://wa.me/27659213018" target="_blank">Chat on WhatsApp</a>
-                </div>
             </div>
         </section>
 
@@ -476,8 +470,8 @@
                         2190
                     </div>
                     <div class="mt-3 flex flex-col gap-2 text-sm">
-                        <div>📞 <a href="tel:+27118679260" class="text-gray-500 no-underline hover:underline">011 867 9260</a></div>
-                        <div>✉️ <a class="text-[var(--blue-700)] no-underline hover:underline transition duration-200" href="mailto:tanya.monyai1@ingredion.com">tanya.monyai1@ingredion.com</a></div>
+                        <div>📞 <a href="tel:+27659213018" class="text-gray-500 no-underline hover:underline">065 921 3018</a></div>
+                        <div>✉️ <a class="text-[var(--blue-700)] no-underline hover:underline transition duration-200" href="mailto:nkanyezzi@gmail.com">nkanyezzi@gmail.com</a></div>
                     </div>
                 </aside>
             </div>
