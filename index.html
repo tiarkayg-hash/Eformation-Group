@@ -211,7 +211,7 @@
             <h2 class="text-3xl font-bold text-[var(--blue-900)]">Schedule a Pickup</h2>
             <p class="text-gray-500">Book a one-off pickup or schedule a recurring weekly or monthly pickup at a time that works for you.</p>
             <div class="bg-white rounded-xl shadow-md p-6 mt-4">
-                <form id="pickup-form" data-form-id="pickup-form" action="https://formspree.io/f/xyzngobk" method="POST" enctype="multipart/form-data">
+                <form id="pickup-form" data-form-id="pickup-form" class="pickup-form">
                     <div class="mb-3">
                         <label class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Pickup Type</label>
                         <div class="flex flex-wrap gap-2">
@@ -319,7 +319,7 @@
                     <div class="mb-4">
                         <label for="parcelPicture" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Picture of Your Parcel</label>
                         <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="file" id="parcelPicture" name="parcelPicture" />
-                        <p class="text-xs text-gray-500 mt-1">If the picture doesn't show up in the email, please try attaching it again.</p>
+                        <p class="text-xs text-gray-500 mt-1">If the picture doesn't show up in the email, you'll have to attach it again manually.</p>
                     </div>
 
                     <div class="mb-4">
@@ -335,11 +335,11 @@
         <section class="py-9">
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="font-bold text-[var(--blue-900)] mb-2">Quick Quote</div>
-                <form id="quote-form" data-form-id="quote-form" action="https://formspree.io/f/mlekrrbp" method="POST" class="grid grid-cols-1 md:grid-cols-4 gap-3 items-center">
+                <form id="quote-form" data-form-id="quote-form" class="quote-form" >
                     <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="From (City/Country)" id="qFrom" name="from" required />
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="To (City/Country)" id="qTo" name="to" required />
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200" placeholder="Weight (kg)" id="qWeight" name="weight" required />
-                    <div class="flex gap-2">
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="To (City/Country)" id="qTo" name="to" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Weight (kg)" id="qWeight" name="weight" required />
+                    <div class="mt-2 flex gap-2">
                         <input class="w-full px-3 py-2 rounded-xl border border-blue-200" type="email" placeholder="Email" id="qEmail" name="_replyto" required />
                         <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-4 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Get Rate</button>
                     </div>
@@ -457,15 +457,13 @@
                 <div>
                     <h2 class="text-3xl font-bold text-[var(--blue-900)]">Contact us</h2>
                     <p class="text-gray-500">Tell us about your shipping needs and we'll reach out.</p>
-                    <form id="contact-form" data-form-id="contact-form" action="https://formspree.io/f/xyzngobk" method="POST" class="mt-3">
+                    <form id="contact-form" data-form-id="contact-form" class="contact-form" >
                         <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Full Name" id="cName" name="fullName" required />
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" type="email" placeholder="Email" id="cEmail" name="_replyto" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" type="email" placeholder="Email" id="cEmail" name="email" required />
                         <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2" placeholder="Company (optional)" id="cCompany" name="company" />
                         <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 min-h-[120px]" placeholder="How can we help?" id="cMessage" name="message"></textarea>
                         <div class="mt-3 flex gap-2">
                             <button class="bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200" type="submit">Submit</button>
-                            <!-- Note: The "Book a Call" button's functionality is handled separately. -->
-                            <button class="bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-600)] hover:text-white transition duration-200" type="button" onclick="window.location.href='https://calendly.com/your-company/booking-call'">Book a Call</button>
                         </div>
                     </form>
                 </div>
@@ -488,181 +486,184 @@
             <div class="bg-[var(--blue-900)] text-white p-6 rounded-xl flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
                     <div class="font-bold text-lg">Ready to move your world?</div>
-                    <div class="text-sm text-gray-400">Schedule a pickup or talk to our logistics experts.</div>
+                    <div class="text-sm text-gray-400">Schedule a pickup or talk to our logistics experts today.</div>
                 </div>
-                <div class="flex gap-2">
-                    <a class="bg-white text-[var(--blue-900)] font-bold py-3 px-6 rounded-full no-underline hover:bg-gray-200 transition duration-200" href="#schedule-pickup">Schedule Pickup</a>
-                    <a class="bg-transparent border-2 border-white/20 text-white font-semibold py-3 px-6 rounded-full no-underline hover:bg-white/20 transition duration-200" href="#contact">Talk to Sales</a>
+                <div class="flex flex-wrap gap-2">
+                    <a class="bg-white text-[var(--blue-900)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-gray-200 transition duration-200" href="#schedule-pickup">Schedule a Pickup</a>
+                    <a class="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-full no-underline hover:bg-white hover:text-[var(--blue-900)] transition duration-200" href="#contact">Contact Sales</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="container mx-auto px-4 text-gray-500 py-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div>
-                <div class="flex gap-2 items-center">
-                    <div class="w-9 h-9 rounded-xl bg-[var(--blue-900)] text-white grid place-items-center font-extrabold text-lg">R</div>
-                    <div class="font-bold text-black">Reformation Group</div>
-                </div>
-                <div class="text-sm mt-2">Seamless, secure, on‑time delivery solutions for businesses and individuals.</div>
-            </div>
-            <div>
-                <div class="font-bold mb-2 text-black">Company</div>
-                <div class="text-sm">About<br/>Careers<br/>Sustainability<br/>Newsroom</div>
-            </div>
-            <div>
-                <div class="font-bold mb-2 text-black">Solutions</div>
-                <div class="text-sm">Developers<br/>Integrations<br/>EDI & Webhooks<br/>Partner Network</div>
-            </div>
-            <div>
-                <div class="font-bold mb-2 text-black">Legal</div>
-                <div class="text-sm"><a href="#terms-and-conditions" class="text-gray-500 no-underline hover:text-black">Terms</a><br/>Privacy<br/>Service Level Agreement<br/>Cookies</div>
-            </div>
-        </div>
-        <div class="mt-4 border-t border-gray-200 pt-3 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-            <div>© <span id="year"></span> Reformation Group. All rights reserved.</div>
-            <div class="mt-2 md:mt-0">Made with for speed, reliability, and great customer care.</div>
-        </div>
+    <footer class="bg-white text-gray-500 text-center py-4">
+        &copy; 2024 Reformation Group. All Rights Reserved.
     </footer>
 
-    <!-- New Terms & Conditions Section -->
-    <section id="terms-and-conditions" class="bg-gray-100 px-4 sm:px-6 lg:px-8 py-16 mt-auto">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="text-2xl font-bold text-center mb-8 text-gray-900">Terms & Conditions</h2>
-            <div class="space-y-8 text-gray-700">
-                <div class="p-6 bg-white rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Liability & Risk</h3>
-                    <p class="mb-2">All goods and parcels are carried at the owner’s, sender’s, or receiver’s risk.</p>
-                    <p class="mb-2">Reformation Group is not liable for any loss, damage, or costs (direct, indirect, or consequential).</p>
-                    <p>Clients indemnify Reformation Group for any claims arising from shipment.</p>
-                </div>
-                <div class="p-6 bg-white rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Limited Liability Option</h3>
-                    <p class="mb-2">Clients may declare a value for parcels and pay a small fee for limited liability.</p>
-                    <p class="mb-2">Maximum liability is R50,000 per waybill.</p>
-                    <p class="mb-2">Many items are excluded, including cash, jewellery, electronics, alcohol, perishables, vehicles, livestock, hazardous goods, and more.</p>
-                    <p>If parcels are not properly packaged, claims may be rejected.</p>
-                </div>
-                <div class="p-6 bg-white rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Insurance</h3>
-                    <p>Clients must arrange their own insurance; Reformation Group does not provide insurance cover.</p>
-                </div>
-                <div class="p-6 bg-white rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Delivery Times & Payment</h3>
-                    <p class="mb-2">Delivery times are estimates only.</p>
-                    <p class="mb-2">Charges are based on weight or volume, not value.</p>
-                    <p>Payment must be made in full. Recovery costs for unpaid amounts are payable by the client.</p>
-                </div>
-                <div class="p-6 bg-white rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold mb-2 text-gray-900">Force Majeure</h3>
-                    <p>Reformation Group is not liable for any failure or delay in performance due to circumstances beyond its reasonable control, including but not limited to acts of God, war, riots, embargoes, fire, flood, or other natural disasters.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Message Modal -->
-    <div id="message-modal" class="modal-overlay">
+    <!-- WhatsApp floating button -->
+    <a href="https://wa.me/27659213018" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
+    </a>
+    
+    <!-- Modal for form submission success -->
+    <div id="success-modal" class="modal-overlay">
         <div class="modal-container">
-            <button class="modal-close" onclick="hideModal()">&times;</button>
-            <div id="modal-content">
-                <!-- Content will be injected here -->
-            </div>
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="modal-title">Success!</div>
+            <div class="modal-body">Your form has been submitted successfully. We will get back to you shortly.</div>
         </div>
     </div>
 
     <script>
-        // Set the current year for the footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        // Handle mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
-
-        // Hide mobile menu when a link is clicked
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                mobileMenu.classList.remove('open');
-            }
-        });
-
-        // Handle active state for pickup type radio buttons
-        const pickupTypeLabels = document.querySelectorAll('.flex-wrap > label');
-        pickupTypeLabels.forEach(label => {
-            label.addEventListener('click', () => {
-                pickupTypeLabels.forEach(l => {
-                    l.classList.remove('border-[var(--blue-900)]');
-                    l.classList.add('border-[var(--blue-100)]');
-                });
-                label.classList.add('border-[var(--blue-900)]');
-                label.classList.remove('border-[var(--blue-100)]');
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
             });
-        });
 
-        // Form submission logic
-        const messageModal = document.getElementById('message-modal');
-        const modalContent = document.getElementById('modal-content');
-
-        function showModal(title, body) {
-            modalContent.innerHTML = `
-                <div class="modal-title text-center">${title}</div>
-                <div class="modal-body text-center mt-2">${body}</div>
-            `;
-            messageModal.classList.add('visible');
-        }
-
-        function hideModal() {
-            messageModal.classList.remove('visible');
-        }
-
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formId = form.dataset.formId;
-            const formData = new FormData(form);
-            
-            showModal('Submitting...', 'Please wait while we process your request.');
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json',
-                    }
+            // Close the dropdown menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
                 });
+            });
 
-                if (response.ok) {
-                    showModal('Success!', 'Your request has been submitted successfully. You will be redirected shortly.');
-                    // Wait 3 seconds, then redirect
-                    setTimeout(() => {
-                        // Use a relative URL to stay within the same page
-                        window.location.href = '#contact'; 
-                    }, 3000);
-                } else {
-                    showModal('Error!', 'There was a problem with your submission. Please try again.');
+            const forms = document.querySelectorAll('form[data-form-id]');
+            const modal = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+
+            // Handle mailto: redirection for forms
+            forms.forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const formId = form.getAttribute('data-form-id');
+                    let subject, body;
+                    let recipientEmail = 'nkanyezzi@gmail.com'; // Default recipient email
+
+                    if (formId === 'pickup-form') {
+                        // Gather data from the pickup form
+                        const pickupType = form.querySelector('input[name="pickupType"]:checked').value;
+                        const pickupDate = form.querySelector('#pickupDate').value;
+                        const pickupTime = form.querySelector('#pickupTime').value;
+                        const pickupUnitNumber = form.querySelector('#unitNumber').value;
+                        const pickupStreetAddress = form.querySelector('#streetAddress').value;
+                        const pickupSuburb = form.querySelector('#suburb').value;
+                        const pickupCity = form.querySelector('#city').value;
+                        const pickupProvince = form.querySelector('#province').value;
+                        const pickupPostalCode = form.querySelector('#postalCode').value;
+                        const deliveryCompany = form.querySelector('#deliveryCompany').value;
+                        const contactPerson = form.querySelector('#contactPerson').value;
+                        const deliveryContactNumber = form.querySelector('#deliveryContactNumber').value;
+                        const altContactNumber = form.querySelector('#altContactNumber').value;
+                        const altContactEmail = form.querySelector('#altContactEmail').value;
+                        const packageQuantity = form.querySelector('#packageQuantity').value;
+                        const packageWeight = form.querySelector('#packageWeight').value;
+                        const specialInstructions = form.querySelector('#specialInstructions').value;
+                        
+                        subject = `Pickup Request: ${pickupType} Pickup`;
+                        body = `
+Pickup Details:
+-----------------------------------
+Type: ${pickupType}
+Date: ${pickupDate}
+Time: ${pickupTime}
+
+Pickup Address:
+-----------------------------------
+Unit Number: ${pickupUnitNumber}
+Street Address: ${pickupStreetAddress}
+Suburb: ${pickupSuburb}
+City: ${pickupCity}
+Province: ${pickupProvince}
+Postal Code: ${pickupPostalCode}
+
+Delivery Details:
+-----------------------------------
+Company: ${deliveryCompany}
+Contact Person: ${contactPerson}
+Contact Number: ${deliveryContactNumber}
+Alternative Number: ${altContactNumber}
+Alternative Email: ${altContactEmail}
+
+Package Details:
+-----------------------------------
+Quantity: ${packageQuantity}
+Weight (kg): ${packageWeight}
+
+Special Instructions:
+-----------------------------------
+${specialInstructions}
+                        `;
+
+                    } else if (formId === 'quote-form') {
+                        // Gather data from the quote form
+                        const qFrom = form.querySelector('#qFrom').value;
+                        const qTo = form.querySelector('#qTo').value;
+                        const qWeight = form.querySelector('#qWeight').value;
+                        const qEmail = form.querySelector('#qEmail').value;
+
+                        subject = `Quick Quote Request`;
+                        body = `
+Quote Request Details:
+-----------------------------------
+From: ${qFrom}
+To: ${qTo}
+Weight (kg): ${qWeight}
+Email: ${qEmail}
+                        `;
+                    } else if (formId === 'contact-form') {
+                        // Gather data from the contact form
+                        const fullName = form.querySelector('#cName').value;
+                        const email = form.querySelector('#cEmail').value;
+                        const company = form.querySelector('#cCompany').value;
+                        const message = form.querySelector('#cMessage').value;
+
+                        subject = `Contact Us Inquiry`;
+                        body = `
+Contact Form Inquiry:
+-----------------------------------
+Full Name: ${fullName}
+Email: ${email}
+Company: ${company}
+Message:
+${message}
+                        `;
+                    }
+
+                    // Create the mailto link and redirect the user
+                    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = mailtoLink;
+                });
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('visible');
+            });
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('visible');
                 }
-            } catch (error) {
-                console.error('Submission failed:', error);
-                showModal('Error!', 'A network error occurred. Please check your connection and try again.');
-            }
-        }
-        
-        document.getElementById('pickup-form').addEventListener('submit', handleFormSubmit);
-        document.getElementById('quote-form').addEventListener('submit', handleFormSubmit);
-        document.getElementById('contact-form').addEventListener('submit', handleFormSubmit);
+            });
 
-        // Handle the specific "Book a Call" button click
-        document.querySelector('button[onclick*="calendly"]').addEventListener('click', (event) => {
-            event.preventDefault();
-            // You can replace this with your own logic if needed, but the current link is fine
-            window.location.href = 'https://calendly.com/your-company/booking-call';
+            // Handle radio button styling
+            const radioButtons = document.querySelectorAll('input[type="radio"][name="pickupType"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    radioButtons.forEach(r => {
+                        r.closest('label').classList.remove('border-[var(--blue-900)]');
+                        r.closest('label').classList.add('border-[var(--blue-100)]');
+                    });
+                    radio.closest('label').classList.remove('border-[var(--blue-100)]');
+                    radio.closest('label').classList.add('border-[var(--blue-900)]');
+                });
+            });
         });
     </script>
 </body>
 </html>
+
