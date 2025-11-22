@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for consistent iconography -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --blue-900: #0a4b7a;
@@ -21,13 +23,11 @@
             background-color: #f9fafb;
             color: #0f1724;
             line-height: 1.45;
-            /* Smooth scrolling for anchor links */
             scroll-behavior: smooth;
         }
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            /* Reduced padding for better mobile view */
             padding: 16px; 
         }
         @media (min-width: 640px) {
@@ -49,11 +49,10 @@
             color: white;
             font-weight: bold;
             font-size: 1.25rem;
-            padding-left: 100%; /* Start off-screen */
+            padding-left: 100%;
         }
-        /* Duplicate content for seamless loop */
         .moving-belt-content span {
-            padding-right: 2rem; /* Add spacing between items */
+            padding-right: 2rem;
         }
         @keyframes marquee {
             0%   { transform: translate(0, 0); }
@@ -87,9 +86,9 @@
             max-width: 400px;
             width: 90%;
             position: relative;
-            /* Animation for modal popping in */
             transform: scale(0.95);
             transition: transform 0.3s ease-out;
+            text-align: center;
         }
         .modal-overlay.visible .modal-container {
             transform: scale(1);
@@ -115,8 +114,8 @@
             color: #333;
         }
         .stars {
-            color: #ffc107; /* Gold color for stars */
-            font-size: 1.5rem;
+            color: #ffc107; 
+            font-size: 1.2rem;
         }
         
         /* WhatsApp floating button */
@@ -131,27 +130,29 @@
             border-radius: 50px;
             text-align: center;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
+            z-index: 999;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: transform 0.2s ease-out;
+            text-decoration: none;
         }
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
         
-        .whatsapp-float img {
+        .whatsapp-float svg {
             width: 35px;
             height: 35px;
+            fill: white;
         }
         
-        /* New dropdown menu styles */
+        /* Dropdown menu styles */
         .dropdown-menu {
             position: absolute;
             top: 100%;
             right: 0;
-            width: 250px; /* Adjust as needed */
+            width: 250px; 
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -160,7 +161,6 @@
             display: none;
             flex-direction: column;
             gap: 4px;
-            /* Animation for dropdown */
             transform-origin: top right;
             opacity: 0;
             transform: scale(0.95);
@@ -184,26 +184,21 @@
             background-color: var(--blue-100);
         }
 
-        /* Style for selected pickup type */
+        /* Radio Styles */
         input[type="radio"]:checked + label,
         input[type="radio"]:checked + label:hover {
              border-color: var(--blue-900);
-             /* You can add other styles like a slightly darker background if you want */
-             /* background-color: #dbeafe; */
+             background-color: var(--blue-100);
+             color: var(--blue-900);
+             font-weight: 700;
         }
-         input[type="radio"] + label {
-            /* Default state */
-            border-color: var(--blue-100);
-         }
-         input[type="radio"] + label:hover {
-            /* Hover state for non-checked */
+        input[type="radio"] + label {
+            border-color: #e5e7eb;
+        }
+        input[type="radio"] + label:hover {
             border-color: var(--blue-600);
-         }
+        }
 
-         /* Set min date for date picker to today */
-         input[type="date"] {
-            min: var(--today-date);
-         }
     </style>
 </head>
 <body class="antialiased">
@@ -228,17 +223,17 @@
 
         <!-- Mobile Menu Toggle Button -->
         <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-200 transition duration-200 focus:outline-none" aria-label="Toggle mobile menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
 
         <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="dropdown-menu">
-            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#schedule-pickup">Schedule Pickup</a>
-            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#services">Services</a>
-            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#industries">Industries</a>
-            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#reviews">Reviews</a>
-            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-600)] transition duration-200" href="#why">Why Us</a>
-            <a class="text-[var(--blue-900)] no-underline font-semibold hover:text-[var(--blue-6D0)] transition duration-200" href="#contact">Contact</a>
+            <a class="text-[var(--blue-900)]" href="#schedule-pickup">Schedule Pickup</a>
+            <a class="text-[var(--blue-900)]" href="#services">Services</a>
+            <a class="text-[var(--blue-900)]" href="#industries">Industries</a>
+            <a class="text-[var(--blue-900)]" href="#reviews">Reviews</a>
+            <a class="text-[var(--blue-900)]" href="#why">Why Us</a>
+            <a class="text-[var(--blue-900)]" href="#contact">Contact</a>
         </div>
     </header>
 
@@ -271,32 +266,32 @@
         </section>
 
         <!-- Use a scroll-margin-top to offset anchor link scrolling due to fixed headers (if you had one) -->
-        <section id="schedule-pickup" class="py-9" style="scroll-margin-top: 80px;">
+        <section id="schedule-pickup" class="py-9" style="scroll-margin-top: 20px;">
             <h2 class="text-3xl font-bold text-[var(--blue-900)]">Schedule a Pickup</h2>
             <p class="text-gray-500">Book a one-off pickup or schedule a recurring weekly or monthly pickup at a time that works for you.</p>
-            <div class="bg-white rounded-xl shadow-lg p-6 mt-4">
+            <div class="bg-white rounded-xl shadow-lg p-6 mt-4 border border-gray-100">
                 <form id="pickup-form" data-form-id="pickup-form" class="pickup-form">
                     <div class="mb-3">
                         <label class="block mb-2 text-[var(--blue-900)] font-semibold text-sm">Pickup Type</label>
                         <div class="flex flex-wrap gap-2">
                             <!-- Note: The 'checked' radio button's label gets the border-blue-900 style via CSS -->
                             <input type="radio" name="pickupType" value="One-Off" class="hidden" id="pickupOneOff" checked />
-                            <label for="pickupOneOff" class="flex-1 min-w-[100px] bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
+                            <label for="pickupOneOff" class="flex-1 min-w-[100px] bg-white py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
                                 One-Off
                             </label>
                             
                             <input type="radio" name="pickupType" value="Daily" class="hidden" id="pickupDaily" />
-                            <label for="pickupDaily" class="flex-1 min-w-[100px] bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
+                            <label for="pickupDaily" class="flex-1 min-w-[100px] bg-white py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
                                 Daily
                             </label>
                             
                             <input type="radio" name="pickupType" value="Weekly" class="hidden" id="pickupWeekly" />
-                            <label for="pickupWeekly" class="flex-1 min-w-[100px] bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
+                            <label for="pickupWeekly" class="flex-1 min-w-[100px] bg-white py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
                                 Weekly
                             </label>
 
                             <input type="radio" name="pickupType" value="Monthly" class="hidden" id="pickupMonthly" />
-                            <label for="pickupMonthly" class="flex-1 min-w-[100px] bg-[var(--blue-100)] py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
+                            <label for="pickupMonthly" class="flex-1 min-w-[100px] bg-white py-2 px-3 rounded-xl border-2 cursor-pointer text-center font-medium transition-all duration-200">
                                 Monthly
                             </label>
                         </div>
@@ -305,11 +300,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                         <div class="form-group">
                             <label for="pickupDate" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Date</label>
-                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="date" id="pickupDate" name="pickupDate" required />
+                            <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)] focus:border-transparent" type="date" id="pickupDate" name="pickupDate" required />
                         </div>
                         <div class="form-group">
                             <label for="pickupTime" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Time</label>
-                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="time" id="pickupTime" name="pickupTime" required />
+                            <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)] focus:border-transparent" type="time" id="pickupTime" name="pickupTime" required />
                         </div>
                     </div>
                     
@@ -318,23 +313,23 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="unitNumber" class="sr-only">Unit Number</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="unitNumber" name="pickupUnitNumber" placeholder="Unit Number" />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="unitNumber" name="pickupUnitNumber" placeholder="Unit Number" />
                             </div>
                             <div>
                                 <label for="streetAddress" class="sr-only">Street Address</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="streetAddress" name="pickupStreetAddress" placeholder="Street Address" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="streetAddress" name="pickupStreetAddress" placeholder="Street Address" required />
                             </div>
                             <div>
                                 <label for="suburb" class="sr-only">Suburb</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="suburb" name="pickupSuburb" placeholder="Suburb" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="suburb" name="pickupSuburb" placeholder="Suburb" required />
                             </div>
                             <div>
                                 <label for="city" class="sr-only">City</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="city" name="pickupCity" placeholder="City" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="city" name="pickupCity" placeholder="City" required />
                             </div>
                             <div>
                                 <label for="province" class="sr-only">Province</label>
-                                <select class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" id="province" name="pickupProvince" required>
+                                <select class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" id="province" name="pickupProvince" required>
                                     <option value="" disabled selected>Select Province</option>
                                     <option value="Eastern Cape">Eastern Cape</option>
                                     <option value="Free State">Free State</option>
@@ -349,14 +344,14 @@
                             </div>
                             <div>
                                 <label for="postalCode" class="sr-only">Postal Code</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="postalCode" name="pickupPostalCode" placeholder="Postal Code" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="postalCode" name="pickupPostalCode" placeholder="Postal Code" required />
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="deliveryCompany" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Deliver to (Company Name)</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryCompany" name="deliveryCompany" placeholder="e.g. Ingredion" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryCompany" name="deliveryCompany" placeholder="e.g. Ingredion" required />
                     </div>
 
                     <!-- New Delivery Address Block -->
@@ -365,23 +360,23 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="deliveryUnitNumber" class="sr-only">Unit Number</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryUnitNumber" name="deliveryUnitNumber" placeholder="Unit Number" />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryUnitNumber" name="deliveryUnitNumber" placeholder="Unit Number" />
                             </div>
                             <div>
                                 <label for="deliveryStreetAddress" class="sr-only">Street Address</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryStreetAddress" name="deliveryStreetAddress" placeholder="Street Address" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryStreetAddress" name="deliveryStreetAddress" placeholder="Street Address" required />
                             </div>
                             <div>
                                 <label for="deliverySuburb" class="sr-only">Suburb</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliverySuburb" name="deliverySuburb" placeholder="Suburb" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliverySuburb" name="deliverySuburb" placeholder="Suburb" required />
                             </div>
                             <div>
                                 <label for="deliveryCity" class="sr-only">City</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryCity" name="deliveryCity" placeholder="City" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryCity" name="deliveryCity" placeholder="City" required />
                             </div>
                             <div>
                                 <label for="deliveryProvince" class="sr-only">Province</label>
-                                <select class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" id="deliveryProvince" name="deliveryProvince" required>
+                                <select class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" id="deliveryProvince" name="deliveryProvince" required>
                                     <option value="" disabled selected>Select Province</option>
                                     <option value="Eastern Cape">Eastern Cape</option>
                                     <option value="Free State">Free State</option>
@@ -396,7 +391,7 @@
                             </div>
                             <div>
                                 <label for="deliveryPostalCode" class="sr-only">Postal Code</label>
-                                <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryPostalCode" name="deliveryPostalCode" placeholder="Postal Code" required />
+                                <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="deliveryPostalCode" name="deliveryPostalCode" placeholder="Postal Code" required />
                             </div>
                         </div>
                     </div>
@@ -406,413 +401,355 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                         <div class="form-group">
                             <label for="contactPerson" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Contact Person</label>
-                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="contactPerson" name="contactPerson" placeholder="e.g. John Doe" required />
+                            <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="text" id="contactPerson" name="contactPerson" placeholder="e.g. John Doe" required />
                         </div>
                         <div class="form-group">
                             <label for="deliveryContactNumber" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Contact Number</label>
-                            <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="tel" id="deliveryContactNumber" name="deliveryContactNumber" placeholder="e.g. 011 867 9260" required />
+                            <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="tel" id="deliveryContactNumber" name="deliveryContactNumber" placeholder="e.g. 011 867 9260" required />
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="altContactNumber" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Alternative Number (Optional)</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="tel" id="altContactNumber" name="altContactNumber" placeholder="e.g. 011 867 9261" />
+                        <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="tel" id="altContactNumber" name="altContactNumber" placeholder="e.g. 011 867 9261" />
                     </div>
 
                     <div class="mb-4">
                         <label for="altContactEmail" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Alternative Email (Optional)</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="email" id="altContactEmail" name="altContactEmail" placeholder="e.g. alternate@example.com" />
+                        <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="email" id="altContactEmail" name="altContactEmail" placeholder="e.g. alternate@example.com" />
                     </div>
                     <!-- End of Moved Contact Info -->
 
                     <div class="mb-4">
                         <label for="packageQuantity" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Quantity of Packages</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="number" id="packageQuantity" name="packageQuantity" placeholder="e.g. 1" min="1" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="number" id="packageQuantity" name="packageQuantity" placeholder="e.g. 1" min="1" required />
                     </div>
 
                     <div class="mb-4">
                         <label for="packageWeight" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Package Weight (kg)</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="number" id="packageWeight" name="packageWeight" placeholder="Approximate weight in kg" min="0.1" step="0.1" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="number" id="packageWeight" name="packageWeight" placeholder="Approximate weight in kg" min="0.1" step="0.1" required />
                     </div>
                     
                     <div class="mb-4">
                         <label for="parcelPicture" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Picture of Your Parcel</label>
                         <input class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[var(--blue-100)] file:text-[var(--blue-700)] hover:file:bg-blue-200" type="file" id="parcelPicture" name="parcelPicture" accept="image/*" />
-                        <p class="text-xs text-gray-500 mt-1">If the picture doesn't show up in the email, you'll have to attach it again manually.</p>
+                        <p class="text-xs text-red-500 font-semibold mt-1">IMPORTANT: Your picture will NOT attach automatically. Please manually attach the image in the email that opens.</p>
                     </div>
 
                     <div class="mb-4">
                         <label for="specialInstructions" class="block mb-1 text-[var(--blue-900)] font-semibold text-sm">Special Instructions / Note</label>
-                        <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 min-h-[80px] focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" id="specialInstructions" name="specialInstructions" placeholder="Any special delivery instructions or notes..."></textarea>
+                        <textarea class="w-full px-3 py-2 rounded-xl border border-gray-300 min-h-[80px] focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" id="specialInstructions" name="specialInstructions" placeholder="Any special delivery instructions or notes..."></textarea>
                     </div>
 
-                    <button class="w-full bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--blue-700)]" type="submit">Schedule Pickup</button>
+                    <button class="w-full bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--blue-700)]" type="submit">Schedule Pickup & Send Email</button>
                 </form>
             </div>
         </section>
 
         <section class="py-9">
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
                 <div class="font-bold text-lg text-[var(--blue-900)] mb-3">Quick Quote</div>
                 <form id="quote-form" data-form-id="quote-form" class="quote-form" >
                     <label for="qFrom" class="sr-only">From</label>
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="From (City/Country)" id="qFrom" name="from" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="From (City/Country)" id="qFrom" name="from" required />
                     
                     <label for="qTo" class="sr-only">To</label>
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="To (City/Country)" id="qTo" name="to" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-gray-300 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="To (City/Country)" id="qTo" name="to" required />
                     
                     <label for="qWeight" class="sr-only">Weight (kg)</label>
-                    <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="Weight (kg)" id="qWeight" name="weight" type="number" min="0.1" step="0.1" required />
+                    <input class="w-full px-3 py-2 rounded-xl border border-gray-300 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="Weight (kg)" id="qWeight" name="weight" type="number" min="0.1" step="0.1" required />
                     
                     <div class="mt-3 flex flex-col sm:flex-row gap-2">
                         <label for="qEmail" class="sr-only">Email</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="email" placeholder="Email" id="qEmail" name="_replyto" required />
+                        <input class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="email" placeholder="Email" id="qEmail" name="_replyto" required />
                         
-                        <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-5 rounded-full hover:bg-[var(--blue-700)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--blue-700)]" type="submit">Get Rate</button>
+                        <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-5 rounded-full hover:bg-[var(--blue-700)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--blue-700)]" type="submit">Get Rate via Email</button>
                     </div>
                 </form>
                 <div class="text-xs text-gray-500 mt-2">Need advanced pricing? <a href="#contact" class="text-[var(--blue-700)] no-underline hover:underline transition duration-200">Contact sales</a>.</div>
             </div>
         </section>
 
-        <section id="services" class="py-9" style="scroll-margin-top: 80px;">
+        <section id="services" class="py-9" style="scroll-margin-top: 20px;">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end">
                 <h2 class="text-3xl font-bold text-[var(--blue-900)]">Services</h2>
                 <a class="text-[var(--blue-700)] no-underline font-semibold mt-2 sm:mt-0 hover:text-[var(--blue-900)] transition duration-200" href="#">View all services →</a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm hover:shadow-md transition duration-200">
+                    <div class="bg-[var(--blue-100)] w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                        <i data-lucide="clock" class="text-[var(--blue-700)] w-6 h-6"></i>
+                    </div>
                     <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">Same‑Day & Next‑Day</h3>
                     <p class="text-gray-500 text-sm">Time‑definite delivery for documents, parcels, and pallets across major metros.</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm hover:shadow-md transition duration-200">
+                    <div class="bg-[var(--blue-100)] w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                        <i data-lucide="globe" class="text-[var(--blue-700)] w-6 h-6"></i>
+                    </div>
                     <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">International Express</h3>
                     <p class="text-gray-500 text-sm">Door‑to‑door cross‑border shipping with customs clearance and real‑time tracking.</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm hover:shadow-md transition duration-200">
+                    <div class="bg-[var(--blue-100)] w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                        <i data-lucide="shopping-bag" class="text-[var(--blue-700)] w-6 h-6"></i>
+                    </div>
                     <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">E‑commerce Fulfilment</h3>
                     <p class="text-gray-500 text-sm">Warehousing, pick‑pack‑ship, and returns management integrated with your store.</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm hover:shadow-md transition duration-200">
+                     <div class="bg-[var(--blue-100)] w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                        <i data-lucide="file-text" class="text-[var(--blue-700)] w-6 h-6"></i>
+                    </div>
                     <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">Contract Logistics</h3>
                     <p class="text-gray-500 text-sm">Inventory optimization, bonded storage, and distribution to your network.</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm hover:shadow-md transition duration-200">
+                     <div class="bg-[var(--blue-100)] w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                        <i data-lucide="truck" class="text-[var(--blue-700)] w-6 h-6"></i>
+                    </div>
                     <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">Freight (Air / Sea / Road)</h3>
                     <p class="text-gray-500 text-sm">Multimodal freight forwarding with end‑to‑end visibility and insurance options.</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">Last‑Mile & PUDO</h3>
-                    <p class="text-gray-500 text-sm">Doorbell to doorstep, or pickup‑dropoff points across urban and rural networks.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="industries" class="py-9" style="scroll-margin-top: 80px;">
-            <h2 class="text-3xl font-bold text-[var(--blue-900)]">Industry Expertise</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-lg text-[var(--blue-900)]">SMEs & Startups</h3><p class="text-gray-500 text-sm mt-1">Flexible plans for growing businesses.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-lg text-[var(--blue-900)]">Healthcare & Cold Chain</h3><p class="text-gray-500 text-sm mt-1">Temperature‑controlled logistics and compliance.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-lg text-[var(--blue-900)]">Retail & E‑commerce</h3><p class="text-gray-500 text-sm mt-1">Scalable fulfilment with returns management.</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm">
-                    <h3 class="font-semibold text-lg text-[var(--blue-900)]">Industrial & Mining</h3><p class="text-gray-500 text-sm mt-1">Heavy freight and specialized handling.</p>
+                <div class="bg-white p-4 rounded-xl border border-[var(--blue-100)] shadow-sm hover:shadow-md transition duration-200">
+                     <div class="bg-[var(--blue-100)] w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                        <i data-lucide="box" class="text-[var(--blue-700)] w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg text-[var(--blue-900)] mb-1">White Glove Service</h3>
+                    <p class="text-gray-500 text-sm">Specialized handling, assembly, and installation for sensitive or high-value items.</p>
                 </div>
             </div>
         </section>
 
-        <section id="reviews" class="py-9" style="scroll-margin-top: 80px;">
-            <h2 class="text-3xl font-bold text-[var(--blue-900)]">Client Reviews</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-                    <div class="stars text-2xl">★★★★★</div>
-                    <p class="text-sm text-gray-600 mt-2 flex-grow">"They helped us scale our same-day deliveries across Gauteng seamlessly. A truly reliable partner."</p>
-                    <div class="text-sm font-semibold mt-2 text-gray-800">- L. van der Merwe</div>
+        <section id="industries" class="py-9" style="scroll-margin-top: 20px;">
+            <h2 class="text-3xl font-bold text-[var(--blue-900)] text-center mb-6">Industries We Serve</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-5 py-2 bg-white rounded-full border border-gray-200 text-gray-700 font-medium shadow-sm">Retail & Fashion</span>
+                <span class="px-5 py-2 bg-white rounded-full border border-gray-200 text-gray-700 font-medium shadow-sm">Automotive</span>
+                <span class="px-5 py-2 bg-white rounded-full border border-gray-200 text-gray-700 font-medium shadow-sm">Healthcare & Pharma</span>
+                <span class="px-5 py-2 bg-white rounded-full border border-gray-200 text-gray-700 font-medium shadow-sm">Technology</span>
+                <span class="px-5 py-2 bg-white rounded-full border border-gray-200 text-gray-700 font-medium shadow-sm">Industrial Manufacturing</span>
+            </div>
+        </section>
+
+        <section id="why" class="py-9 bg-[var(--blue-100)] rounded-3xl p-8 my-8">
+            <h2 class="text-3xl font-bold text-[var(--blue-900)] text-center mb-8">Why Choose Reformation?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i data-lucide="shield-check" class="text-[var(--blue-600)] w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[var(--blue-900)] mb-2">Secure & Reliable</h3>
+                    <p class="text-gray-600">Our vetted drivers and secure network ensure your parcels are safe from pickup to drop-off.</p>
                 </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-                    <div class="stars text-2xl">★★★★★</div>
-                    <p class="text-sm text-gray-600 mt-2 flex-grow">"The customs clearance process was flawless—the international team is fantastic. Highly recommended for any cross-border needs."</p>
-                    <div class="text-sm font-semibold mt-2 text-gray-800">- S. Mkhize</div>
+                <div class="text-center">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i data-lucide="zap" class="text-[var(--blue-600)] w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[var(--blue-900)] mb-2">Speed Optimized</h3>
+                    <p class="text-gray-600">Smart routing technology to find the fastest path, ensuring on-time delivery every time.</p>
                 </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-                    <div class="stars text-2xl">★★★★★</div>
-                    <p class="text-sm text-gray-600 mt-2 flex-grow">"Reformation Group had the best tracking and communication we've ever experienced from a courier company. We always knew where our shipments were."</p>
-                    <div class="text-sm font-semibold mt-2 text-gray-800">- R. Adams</div>
+                <div class="text-center">
+                    <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i data-lucide="headphones" class="text-[var(--blue-600)] w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[var(--blue-900)] mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Real humans ready to help you with tracking, scheduling, and custom solutions.</p>
                 </div>
             </div>
         </section>
 
-        <section id="why" class="py-9" style="scroll-margin-top: 80px;">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-[var(--blue-900)]">Why Reformation Group?</h2>
-                    <ul class="mt-4 text-gray-600 list-disc list-inside space-y-2">
-                        <li>On‑time delivery backed by data‑driven routing and live ETAs.</li>
-                        <li>Proactive notifications: SMS, email, and webhook events.</li>
-                        <li>End‑to‑end security: tamper‑evident packaging and chain‑of‑custody.</li>
-                        <li>Sustainability options: consolidate, offset, and recyclable materials.</li>
-                    </ul>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a class="bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-700)] transition duration-200" href="#contact">Get a Quote</a>
-                        <a class="bg-transparent border-2 border-[var(--blue-600)] text-[var(--blue-600)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-[var(--blue-600)] hover:text-white transition duration-200" href="#contact">Talk to Sales</a>
-                    </div>
+        <section id="reviews" class="py-9" style="scroll-margin-top: 20px;">
+            <h2 class="text-3xl font-bold text-[var(--blue-900)] mb-6">Client Reviews</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-[var(--blue-600)]">
+                    <div class="stars mb-2">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Reformation Group has transformed our supply chain. Their same-day delivery option is a game changer for our local customers."</p>
+                    <div class="font-bold text-[var(--blue-900)]">— Sarah Jenkins, Retail Manager</div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="bg-white rounded-xl shadow-sm p-4 border border-[var(--blue-100)]">
-                        <strong class="text-[var(--blue-900)] text-lg">Real‑Time Tracking</strong><div class="text-sm text-gray-500">Live map views, status scans, and POD capture.</div>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-sm p-4 border border-[var(--blue-100)]">
-                        <strong class="text-[var(--blue-900)] text-lg">Global Network</strong><div class="text-sm text-gray-500">220+ countries with priority lanes.</div>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-sm p-4 border border-[var(--blue-100)]">
-                        <strong class="text-[var(--blue-900)] text-lg">Insurance</strong><div class="text-sm text-gray-500">Coverage for high‑value and sensitive goods.</div>
-                    </div>
-                    <div class="bg-white rounded-xl shadow-sm p-4 border border-[var(--blue-100)]">
-                        <strong class="text-[var(--blue-900)] text-lg">Speed</strong><div class="text-sm text-gray-500">Express options from 2–72 hours.</div>
-                    </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-[var(--blue-600)]">
+                    <div class="stars mb-2">★★★★★</div>
+                    <p class="text-gray-600 italic mb-4">"Reliable, professional, and always on time. The tracking updates give us complete peace of mind."</p>
+                    <div class="font-bold text-[var(--blue-900)]">— Michael D., Logistics Coordinator</div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-9" style="scroll-margin-top: 80px;">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-white rounded-xl shadow-lg p-6">
-                    <h2 class="text-3xl font-bold text-[var(--blue-900)]">Contact us</h2>
-                    <p class="text-gray-500 mt-2">Tell us about your shipping needs and we'll reach out.</p>
-                    <form id="contact-form" data-form-id="contact-form" class="contact-form mt-4">
-                        <label for="cName" class="sr-only">Full Name</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="Full Name" id="cName" name="fullName" required />
-                        
-                        <label for="cEmail" class="sr-only">Email</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" type="email" placeholder="Email" id="cEmail" name="email" required />
-                        
-                        <label for="cCompany" class="sr-only">Company (optional)</label>
-                        <input class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="Company (optional)" id="cCompany" name="company" />
-                        
-                        <label for="cMessage" class="sr-only">How can we help?</label>
-                        <textarea class="w-full px-3 py-2 rounded-xl border border-blue-200 mt-2 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-[var(--blue-600)]" placeholder="How can we help?" id="cMessage" name="message"></textarea>
-                        
-                        <div class="mt-4 flex gap-2">
-                            <button class="bg-[var(--blue-600)] text-white font-semibold py-3 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--blue-700)]" type="submit">Submit</button>
+        <section id="contact" class="py-9 mb-12" style="scroll-margin-top: 20px;">
+            <div class="bg-[var(--blue-900)] rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4">Ready to ship?</h2>
+                    <p class="text-blue-100 text-lg mb-6">Contact us today to discuss your logistics needs or schedule a pickup immediately.</p>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-[var(--blue-600)]"></i>
+                            <span>+27 11 867 9260</span>
                         </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-[var(--blue-600)]"></i>
+                            <span>support@reformationgroup.co.za</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[var(--blue-600)]"></i>
+                            <span>12 Logistics Way, Johannesburg, 2000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3 w-full bg-white rounded-2xl p-6 text-gray-800">
+                    <h3 class="font-bold text-xl mb-4 text-[var(--blue-900)]">Send a Message</h3>
+                    <form id="contact-form-general">
+                        <input class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 mb-3" placeholder="Your Name" name="name" required>
+                        <input class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 mb-3" type="email" placeholder="Your Email" name="email" required>
+                        <textarea class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 mb-3" placeholder="Message" name="message" rows="3" required></textarea>
+                        <button type="submit" class="w-full bg-[var(--blue-600)] text-white font-bold py-2 rounded-lg hover:bg-[var(--blue-700)] transition">Send</button>
                     </form>
-                </div>
-                <aside class="bg-white rounded-xl shadow-lg p-6">
-                    <h3 class="font-semibold text-2xl text-[var(--blue-900)]">Head Office</h3>
-                    <div class="text-sm text-gray-500 mt-2">
-                        JOHANNESBURG<br/>
-                        GAUTENG<br/>
-                        2190, South Africa
-                    </div>
-                    <div class="mt-4 flex flex-col gap-3 text-sm">
-                        <div>
-                            <span class="text-lg">📞</span> 
-                            <a href="tel:+27659213018" class="text-gray-600 no-underline hover:underline">065 921 3018</a>
-                        </div>
-<div>
-                            <span class="text-lg">✉️</span> 
-                            <a class="text-[var(--blue-700)] no-underline hover:underline transition duration-200" href="mailto:nkanyezzi@gmail.com">nkanyezzi@gmail.com</a>
-                        </div>
-                    </div>
-                    <!-- You could add a map embed here later -->
-                    <!-- <div class="mt-4 h-48 bg-gray-200 rounded-xl">Map Placeholder</div> -->
-                </aside>
-            </div>
-        </section>
-
-        <section class="my-6">
-            <div class="bg-[var(--blue-900)] text-white p-6 rounded-xl flex flex-col sm:flex-row justify-between items-center gap-4 shadow-lg">
-                <div>
-                    <div class="font-bold text-lg">Ready to move your world?</div>
-                    <div class="text-sm text-gray-300">Schedule a pickup or talk to our logistics experts today.</div>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                    <a class="bg-white text-[var(--blue-900)] font-semibold py-3 px-6 rounded-full no-underline hover:bg-gray-200 transition duration-200" href="#schedule-pickup">Schedule a Pickup</a>
-                    <a class="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-full no-underline hover:bg-white hover:text-[var(--blue-900)] transition duration-200" href="#contact">Contact Sales</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white text-gray-500 text-center py-6 border-t border-gray-200">
-        &copy; 2024 Reformation Group. All rights reserved.
+    <footer class="bg-white border-t border-gray-200 pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded-lg bg-[var(--blue-900)] text-white grid place-items-center font-bold">R</div>
+                    <span class="font-bold text-[var(--blue-900)]">Reformation Group</span>
+                </div>
+                <div class="text-sm text-gray-500">
+                    &copy; 2024 Reformation Group. All rights reserved.
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Modal Overlay and Container (hidden by default) -->
-    <div id="success-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/27118679260" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <!-- SVG for WhatsApp Icon -->
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2C8.268 2 2 8.268 2 16c0 2.658.748 5.138 2.052 7.26L2.668 29.33l6.236-1.34C11.026 29.356 13.444 30 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5c-2.222 0-4.32-.638-6.136-1.74l-.44-.266-3.642.782.788-3.56-.276-.462C5.356 20.358 4.5 18.262 4.5 16c0-6.35 5.15-11.5 11.5-11.5s11.5 5.15 11.5 11.5-5.15 11.5-11.5 11.5zm6.304-8.594c-.346-.174-2.042-1.008-2.358-1.124-.316-.116-.546-.174-.776.174-.23.348-.89 1.124-1.092 1.356-.202.232-.404.26-.75.086-1.796-.898-2.99-1.59-4.192-3.654-.128-.22.366-.456.882-1.486.086-.174.044-.326-.022-.458-.066-.132-.586-1.46-1.066-2.586-.226-.528-.476-.46-.684-.46h-.584c-.202 0-.528.076-.804.38-.276.304-1.052 1.028-1.052 2.508s1.076 2.91 1.226 3.112c.15.202 2.118 3.234 5.13 4.536 2.05 1.028 2.846.824 3.864.726 1.118-.108 2.042-.836 2.33-1.644.288-.808.288-1.5.202-1.644-.086-.144-.316-.23-.662-.404z"/>
+        </svg>
+    </a>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay">
         <div class="modal-container">
-            <button id="modal-close-btn" class="modal-close" aria-label="Close modal">×</button>
-            <div class="modal-title" id="modal-title">Success! 🎉</div>
-            <div class="modal-body" id="modal-body">Your submission was successful. Thank you!</div>
-            <div class="mt-4 text-center">
-                <div class="stars" aria-hidden="true">★★★★★</div>
-                <div class="text-xs text-gray-500 mt-1">Leave us a review once your delivery is complete!</div>
+            <button class="modal-close" onclick="closeModal('success-modal')">&times;</button>
+            <div class="text-[var(--blue-600)] mb-4">
+                <i data-lucide="check-circle" class="w-16 h-16 mx-auto"></i>
             </div>
+            <h3 class="modal-title">Check Your Email</h3>
+            <p class="modal-body mb-4">We've opened your default email client. Please attach your parcel picture manually and click send!</p>
+            <button class="bg-[var(--blue-600)] text-white font-semibold py-2 px-6 rounded-full hover:bg-[var(--blue-700)] transition duration-200" onclick="closeModal('success-modal')">Close</button>
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button HTML -->
-    <a href="https://wa.me/27659213018?text=Hello%20Reformation%20Group,%20I%20have%20a%20logistics%20enquiry." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-        <!-- Using an inline SVG for the WhatsApp icon to avoid external image dependencies -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.451 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.847 6.062l-1.214 4.425 4.56-1.192zM12 18.066c-.04-.02-.499-.246-1.023-.429-.524-.183-1.036-.5-1.192-.683-.156-.183-.312-.365-.04-.684.273-.319.582-.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683-.195.295-.55.811-1.023 1.15-.473.34-1.023.5-1.192.684-.168.183-.312.365-.04.683.273.319.582.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683-.195.295-1.289-1.201-1.813-1.543-.524-.342-1.036-.5-1.192-.683-.156-.183-.312-.365-.04-.684.273-.319.582-.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683-.195.295-.55.811-1.023 1.15-.473.34-1.023.5-1.192.684-.168.183-.312.365-.04.683.273.319.582.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683-.195.295-1.289-1.201-1.813-1.543-.524-.342-1.036-.5-1.192-.683-.156-.183-.312-.365-.04-.684.273-.319.582-.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683-.195.295-.55.811-1.023 1.15-.473.34-1.023.5-1.192.684-.168.183-.312.365-.04.683.273.319.582.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683-.195.295-1.289-1.201-1.813-1.543-.524-.342-1.036-.5-1.192-.683-.156-.183-.312-.365-.04-.684.273-.319.582-.39.739-.318.156.07.524.683.68 1.023.156.34.234.39.04.683z"/></svg>
-    </a>
-
-    <!-- This is the JavaScript that makes the page interactive -->
     <script>
-    // Wait for the DOM to be fully loaded before running scripts
-    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-        // --- 0. Set Minimum Date for Date Picker ---
-        // Get today's date in YYYY-MM-DD format
-        const today = new Date().toISOString().split('T')[0];
-        const dateInput = document.getElementById('pickupDate');
-        if (dateInput) {
-            dateInput.setAttribute('min', today);
-            // Also set it as a CSS variable for the style tag (fallback)
-            document.documentElement.style.setProperty('--today-date', today);
-        }
-
-        // --- 1. Mobile Menu Toggle ---
+        // Mobile Menu Logic
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileMenuToggle && mobileMenu) {
-            mobileMenuToggle.addEventListener('click', () => {
-                // Toggle the 'open' class for visibility
-                mobileMenu.classList.toggle('open');
-            });
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
 
-            // Close menu when a link is clicked (for single-page navigation)
-            const menuLinks = mobileMenu.querySelectorAll('a');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
-                });
-            });
-
-            // Close menu if clicking outside of it
-            document.addEventListener('click', (event) => {
-                // Check if the click is outside the menu AND outside the toggle button
-                if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target) && mobileMenu.classList.contains('open')) {
-                    mobileMenu.classList.remove('open');
-                }
-            });
-        }
-
-        // --- 2. Pickup Type Selector Styling ---
-        // This is now handled purely by CSS using the :checked pseudo-selector and sibling combinator
-        // No JavaScript is needed for this anymore, which is more efficient!
-
-        // --- 3 & 4. Form Submission and Modal Logic ---
-        const modalOverlay = document.getElementById('success-modal');
-        const modalCloseButton = document.getElementById('modal-close-btn');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-
-        // Function to show the modal
-        const showModal = (title, message) => {
-            if (modalTitle) modalTitle.textContent = title;
-            if (modalBody) modalBody.textContent = message;
-            if (modalOverlay) modalOverlay.classList.add('visible');
-        };
-
-        // Function to hide the modal
-        const hideModal = () => {
-            if (modalOverlay) modalOverlay.classList.remove('visible');
-        };
-
-        // Event listeners for closing the modal
-        if (modalCloseButton) {
-            modalCloseButton.addEventListener('click', hideModal);
-        }
-        
-        if (modalOverlay) {
-            // Close modal if the overlay (outside the container) is clicked
-            modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) {
-                    hideModal();
-                }
-            });
-        }
-        
-        // Add ESC key listener to close modal
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('visible')) {
-                hideModal();
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                mobileMenu.classList.remove('open');
             }
         });
 
-        // Generic form submission handler
-        const setupFormSubmission = (formId) => {
-            const form = document.getElementById(formId);
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Stop the default form submission
+        // Date Picker Min Date (Today)
+        const dateInputs = document.querySelectorAll('input[type="date"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInputs.forEach(input => {
+            input.min = today;
+        });
 
-                    // --- Form Validation (Simple) ---
-                    // Modern HTML5 'required' attribute handles most of this,
-                    // but this is where you'd add more complex JS validation.
-                    
-                    // 1. Get Form Data (simple log for demonstration)
-                    const formData = new FormData(form);
-                    const data = {};
-                    formData.forEach((value, key) => {
-                        // For file, just get the name
-                        if (value instanceof File) {
-                            data[key] = value.name;
-                        } else {
-                            data[key] = value;
-                        }
-                    });
-                    
-                    // In a real app, you would send this 'data' to your server:
-                    // fetch('/api/submit', { method: 'POST', body: formData })
-                    //   .then(response => response.json())
-                    //   .then(data => showModal(...))
-                    //   .catch(error => showModal('Error', 'Something went wrong.'));
-                    
-                    console.log(`Submitting form: ${formId}`, data); 
-
-                    // 2. Show Success Modal based on which form was submitted
-                    let title = "Success! 🎉";
-                    let message = "Your request has been received. We'll be in touch shortly!";
-                    
-                    if (formId === 'pickup-form') {
-                        title = "Pickup Scheduled! 📦";
-                        message = "We've received your pickup request and will confirm the details soon. Please check your email for a summary.";
-                    } else if (formId === 'quote-form') {
-                        title = "Rate Requested! 💸";
-                        message = "We'll email your custom quote as quickly as possible. Keep an eye on your inbox!";
-                    }
-
-                    showModal(title, message);
-
-                    // 3. Reset the form fields
-                    form.reset();
-                    
-                    // If the pickup form is reset, we need to manually set the 'checked'
-                    // attribute back to the default 'One-Off' for the CSS to pick it up.
-                    if (formId === 'pickup-form') {
-                        const oneOffRadio = document.getElementById('pickupOneOff');
-                        if (oneOffRadio) {
-                            oneOffRadio.checked = true;
-                        }
-                    }
-                });
+        // Helper to format email body
+        function formatEmailBody(formData, title) {
+            let body = `${title}\n--------------------------\n\n`;
+            
+            // Specifically handling the picture note first if it's the pickup form
+            if (title.includes("Pickup")) {
+                 body += ">>> IMPORTANT: Please attach your parcel picture to this email manually here <<<\n\n";
             }
-        };
 
-        // Setup form submission for all three forms
-        setupFormSubmission('pickup-form');
-        setupFormSubmission('quote-form');
-        setupFormSubmission('contact-form');
+            for (let [key, value] of formData.entries()) {
+                // Skip the file input in the text body
+                if (key === 'parcelPicture') continue;
+                
+                // Format key for better readability
+                let label = key.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
+                body += `${label}: ${value}\n`;
+            }
+            return body;
+        }
 
-    }); // End of DOMContentLoaded
+        // Handle Pickup Form
+        const pickupForm = document.getElementById('pickup-form');
+        if (pickupForm) {
+            pickupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(pickupForm);
+                const body = formatEmailBody(formData, "New Pickup Request");
+                const subject = encodeURIComponent("New Pickup Request - Reformation Group");
+                const bodyEncoded = encodeURIComponent(body);
+                
+                // Redirect to mailto
+                window.location.href = `mailto:support@reformationgroup.co.za?subject=${subject}&body=${bodyEncoded}`;
+                
+                // Show instruction modal
+                const modal = document.getElementById('success-modal');
+                if(modal) modal.classList.add('visible');
+            });
+        }
+
+        // Handle Quote Form
+        const quoteForm = document.getElementById('quote-form');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(quoteForm);
+                const body = formatEmailBody(formData, "Quote Request");
+                const subject = encodeURIComponent("Quote Request - Reformation Group");
+                const bodyEncoded = encodeURIComponent(body);
+                
+                window.location.href = `mailto:support@reformationgroup.co.za?subject=${subject}&body=${bodyEncoded}`;
+            });
+        }
+        
+        // Handle Contact Form (General)
+        const contactForm = document.getElementById('contact-form-general');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                const body = formatEmailBody(formData, "General Inquiry");
+                const subject = encodeURIComponent("General Inquiry - Reformation Group");
+                const bodyEncoded = encodeURIComponent(body);
+                
+                window.location.href = `mailto:support@reformationgroup.co.za?subject=${subject}&body=${bodyEncoded}`;
+            });
+        }
+
+        // Modal Functions
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('visible');
+        }
+
+        // Close modal when clicking on overlay
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('visible');
+                }
+            });
+        });
     </script>
 </body>
 </html>
